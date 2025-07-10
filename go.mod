@@ -48,7 +48,7 @@ require (
 	gocloud.dev v0.41.0
 	golang.org/x/crypto v0.37.0
 	golang.org/x/oauth2 v0.29.0
-	golang.org/x/sync v0.13.0
+	golang.org/x/sync v0.16.0
 	golang.org/x/text v0.24.0
 	golang.org/x/tools v0.32.0
 	gopkg.in/mail.v2 v2.3.1
@@ -85,7 +85,6 @@ require (
 	go.opentelemetry.io/otel/exporters/stdout/stdoutlog v0.8.0 // indirect
 	go.opentelemetry.io/otel/log v0.8.0 // indirect
 	go.opentelemetry.io/otel/sdk/log v0.8.0 // indirect
-
 )
 
 require (
