@@ -12,6 +12,7 @@ import (
 	"path/filepath"
 	"slices"
 	"strings"
+	"strconv"
 	"text/template"
 
 	"github.com/caarlos0/log"
@@ -152,7 +153,8 @@ func doRun(ctx *context.Context, aur config.AUR, cl client.ReleaseURLTemplater) 
 			folder := artifact.ExtraOr(*art, artifact.ExtraWrappedIn, ".")
 			for _, bin := range artifact.MustExtra[[]string](*art, artifact.ExtraBinaries) {
 				path := filepath.ToSlash(filepath.Clean(filepath.Join(folder, bin)))
-				pkg = fmt.Sprintf(`install -Dm755 "./%s" "${pkgdir}/usr/bin/%s"`, path, bin)
+				escapedBin := strings.Trim(strconv.Quote(bin), `"`)
+				pkg = fmt.Sprintf(`install -Dm755 "./%s" "${pkgdir}/usr/bin/%s"`, path, escapedBin)
 				break
 			}
 		}
